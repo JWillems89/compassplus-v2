@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPASS+ | FWO SBO Research Project</title>
+    <meta name="description" content="COMPASS+ — FWO SBO research project empowering study choice for higher education through Columbus self-assessment feedback.">
+    <meta property="og:title" content="COMPASS+ | FWO SBO Research Project">
+    <meta property="og:description" content="Empowering the Study Choice Process for Higher Education through Online Self-Assessment Feedback and Effective Career Guidance.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================================
+           COMPASS+ — Scholarly Modern Design
+           Palette: deep navy · warm amber · parchment
+        ================================================ */
+
+        :root {
+            --ink:          #1E1A16;
+            --navy:         #1C3554;
+            --navy-dark:    #142744;
+            --amber:        #B8732A;
+            --amber-light:  #D4943D;
+            --paper:        #F7F3ED;
+            --paper-dark:   #EDE8DF;
+            --rule:         #CEC8BE;
+            --muted:        #6B6258;
+            --white:        #FFFFFF;
+
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans:  'Inter', -apple-system, sans-serif;
+            --mono:  'Space Mono', monospace;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Language */
+        .lang-hidden { display: none !important; }
+
+        /* ------------------------------------------------
+           ANNOUNCEMENT BAR
+        ------------------------------------------------ */
+        .bar {
+            background: var(--navy-dark);
+            color: rgba(255,255,255,.75);
+            font-family: var(--mono);
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 9px 20px;
+        }
+        .bar a { color: var(--amber-light); text-decoration: none; }
+        .bar .sep { margin: 0 14px; opacity: .35; }
+
+        /* ------------------------------------------------
+           HEADER
+        ------------------------------------------------ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--paper);
+            border-bottom: 1px solid var(--rule);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img { height: 38px; width: auto; }
+
+        nav { display: flex; align-items: center; gap: 32px; }
+        nav a {
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            opacity: .65;
+            transition: opacity .2s;
+        }
+        nav a:hover { opacity: 1; }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-left: 24px;
+            padding-left: 24px;
+            border-left: 1px solid var(--rule);
+        }
+        .lang-btn {
+            font-family: var(--mono);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            padding: 4px 9px;
+            border: none;
+            background: none;
+            color: var(--muted);
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all .2s;
+        }
+        .lang-btn.active { color: var(--navy); background: var(--paper-dark); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--ink);
+        }
+
+        /* ------------------------------------------------
+           MOBILE NAV OVERLAY
+        ------------------------------------------------ */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: var(--navy);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .mobile-nav a:hover { color: var(--amber-light); }
+        .mobile-close {
+            position: absolute;
+            top: 22px; right: 28px;
+            font-size: 1.8rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ------------------------------------------------
+           HERO
+        ------------------------------------------------ */
+        .hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 96px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* subtle vertical grid lines */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent, transparent 119px,
+                rgba(255,255,255,.025) 119px, rgba(255,255,255,.025) 120px
+            );
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 80px;
+            align-items: end;
+        }
+        .hero-eyebrow {
+            font-family: var(--mono);
+            font-size: .68rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--amber-light);
+            margin-bottom: 26px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--amber-light);
+            flex-shrink: 0;
+        }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -.015em;
+            margin-bottom: 28px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--amber-light);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 6px;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,.65);
+            max-width: 560px;
+            line-height: 1.85;
+            margin-bottom: 40px;
+        }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-amber {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--amber);
+            color: var(--white);
+            font-size: .82rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            padding: 13px 26px;
+            text-decoration: none;
+            transition: background .2s;
+        }
+        .btn-amber:hover { background: var(--amber-light); }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,.28);
+            color: rgba(255,255,255,.85);
+            font-size: .82rem;
+            font-weight: 500;
+            letter-spacing: .04em;
+            padding: 13px 26px;
+            text-decoration: none;
+            transition: all .2s;
+        }
+        .btn-ghost:hover { border-color: rgba(255,255,255,.65); background: rgba(255,255,255,.06); }
+
+        /* hero stats sidebar */
+        .hero-aside {
+            border-left: 1px solid rgba(255,255,255,.1);
+            padding-left: 48px;
+        }
+        .aside-label {
+            font-family: var(--mono);
+            font-size: .62rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+            margin-bottom: 28px;
+        }
+        .hero-stat {
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+        .hero-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .stat-num {
+            font-family: var(--serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--amber-light);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .stat-label { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+        /* ------------------------------------------------
+           SHARED SECTION CHROME
+        ------------------------------------------------ */
+        section { padding: 96px 40px; }
+
+        .inner { max-width: 1200px; margin: 0 auto; }
+
+        .sec-label {
+            font-family: var(--mono);
+            font-size: .65rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sec-label::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--amber);
+        }
+
+        h2.sec-title {
+            font-family: var(--serif);
+            font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -.01em;
+            margin-bottom: 16px;
+        }
+        h2.sec-title em {
+            font-style: normal;
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--amber);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 5px;
+        }
+
+        .sec-sub {
+            font-size: .95rem;
+            color: var(--muted);
+            max-width: 580px;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        hr.rule { border: none; border-top: 1px solid var(--rule); }
+
+        /* ------------------------------------------------
+           ABOUT
+        ------------------------------------------------ */
+        #about { background: var(--paper); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .about-text p {
+            font-size: .93rem;
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+        .about-text p strong { color: var(--ink); font-weight: 600; }
+
+        .pillars { display: flex; flex-direction: column; }
+        .pillar {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 18px;
+            align-items: start;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+        .pillars .pillar:first-child { border-top: 1px solid var(--rule); }
+        .pillar-icon { font-size: 1.2rem; padding-top: 2px; }
+        .pillar h4 {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+        .pillar p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+        /* ------------------------------------------------
+           RESEARCH LINES
+        ------------------------------------------------ */
+        #research { background: var(--white); }
+
+        .rl {
+            display: grid;
+            grid-template-columns: 72px 220px 1fr;
+            gap: 48px;
+            padding: 56px 0;
+            border-top: 1px solid var(--rule);
+            align-items: start;
+        }
+        .rl:last-of-type { border-bottom: 1px solid var(--rule); }
+
+        .rl-num {
+            font-family: var(--serif);
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--paper-dark);
+            line-height: 1;
+        }
+
+        .rl-meta { padding-top: 4px; }
+        .rl-tag {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .rl-meta h3 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+        .rl-meta h3 em {
+            font-style: normal;
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--amber);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+        .rl-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+        .chip {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            color: var(--navy);
+            background: rgba(28,53,84,.09);
+            padding: 3px 10px;
+        }
+
+        .rl-body p {
+            font-size: .9rem;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+        .rl-objectives {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 24px;
+        }
+        .rl-objectives li {
+            font-size: .85rem;
+            color: var(--ink);
+            padding-left: 22px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .rl-objectives li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--amber);
+            font-size: .78rem;
+        }
+
+        .study-card {
+            background: var(--paper);
+            border-left: 3px solid var(--amber);
+            padding: 14px 18px;
+            margin-top: 8px;
+        }
+        .study-card + .study-card { margin-top: 10px; }
+        .study-card-label {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 5px;
+        }
+        .study-card p {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 0;
+            line-height: 1.55;
+        }
+        .study-card strong { color: var(--ink); }
+
+        /* ------------------------------------------------
+           VALORISATION
+        ------------------------------------------------ */
+        #valorisation {
+            background: var(--navy);
+            color: var(--white);
+        }
+        #valorisation .sec-label { color: var(--amber-light); }
+        #valorisation .sec-label::after { background: var(--amber-light); }
+        #valorisation h2.sec-title { color: var(--white); }
+        #valorisation h2.sec-title em {
+            text-decoration-color: var(--amber-light);
+        }
+        #valorisation .sec-sub { color: rgba(255,255,255,.55); }
+
+        .val-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: rgba(255,255,255,.08);
+            gap: 1px;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+        .val-item {
+            background: var(--navy);
+            padding: 40px 36px;
+            transition: background .2s;
+        }
+        .val-item:hover { background: rgba(255,255,255,.04); }
+        .val-n {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .15em;
+            color: var(--amber-light);
+            opacity: .7;
+            margin-bottom: 18px;
+        }
+        .val-item h3 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .val-item p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+        /* ------------------------------------------------
+           PARTNERS
+        ------------------------------------------------ */
+        #partners { background: var(--paper-dark); padding: 60px 40px; }
+        .partners-label {
+            font-family: var(--mono);
+            font-size: .62rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 28px 40px;
+            margin-bottom: 24px;
+        }
+        .partner-logos img {
+            height: 34px;
+            width: auto;
+            filter: grayscale(1) opacity(.55);
+            transition: filter .25s;
+        }
+        .partner-logos img:hover { filter: grayscale(0) opacity(1); }
+        .partner-names {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 18px;
+        }
+        .partner-names span {
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: var(--muted);
+        }
+
+        /* ------------------------------------------------
+           NEWS
+        ------------------------------------------------ */
+        #news { background: var(--white); }
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .link-arrow {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            transition: gap .2s;
+        }
+        .link-arrow:hover { gap: 10px; }
+        .news-empty {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+        }
+        .news-empty p { font-size: .88rem; color: var(--muted); }
+
+        /* ------------------------------------------------
+           CALENDAR
+        ------------------------------------------------ */
+        #calendar { background: var(--paper); }
+        .cal-wrap { max-width: 720px; }
+        .cal-nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .cal-nav button {
+            width: 34px; height: 34px;
+            background: none;
+            border: 1px solid var(--rule);
+            cursor: pointer;
+            font-size: .9rem;
+            color: var(--ink);
+            display: flex; align-items: center; justify-content: center;
+            transition: all .2s;
+        }
+        .cal-nav button:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+        .cal-month { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; }
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+            margin-bottom: 20px;
+        }
+        .cal-dh {
+            background: var(--paper-dark);
+            text-align: center;
+            padding: 8px 4px;
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .08em;
+            color: var(--muted);
+        }
+        .cal-d {
+            background: var(--white);
+            text-align: center;
+            padding: 10px 4px;
+            font-size: .8rem;
+            color: var(--muted);
+            min-height: 42px;
+        }
+        .cal-d.other { background: var(--paper); color: var(--rule); }
+        .cal-d.today { background: var(--navy); color: var(--white); font-weight: 700; }
+        .cal-d.event { background: var(--paper-dark); color: var(--ink); font-weight: 600; cursor: pointer; }
+        .cal-legend { display: flex; gap: 20px; flex-wrap: wrap; }
+        .cal-legend span {
+            font-size: .72rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .cal-legend i { display: inline-block; width: 11px; height: 11px; }
+
+        /* ------------------------------------------------
+           CONTACT
+        ------------------------------------------------ */
+        #contact { background: var(--white); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .contact-lead {
+            font-size: .92rem;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 36px;
+        }
+        .cinfo {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+        .cinfo-icon {
+            width: 38px; height: 38px;
+            background: var(--paper);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .95rem;
+            flex-shrink: 0;
+        }
+        .cinfo-tag {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 3px;
+        }
+        .cinfo-val { font-size: .88rem; color: var(--ink); font-weight: 500; }
+        .cinfo-sub { font-size: .78rem; color: var(--muted); }
+        .cinfo-val a { color: var(--navy); text-decoration: none; }
+
+        .c-form { display: flex; flex-direction: column; gap: 18px; }
+        .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .f-group { display: flex; flex-direction: column; gap: 5px; }
+        .f-group label {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .f-group input,
+        .f-group select,
+        .f-group textarea {
+            font-family: var(--sans);
+            font-size: .88rem;
+            color: var(--ink);
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            padding: 11px 14px;
+            outline: none;
+            transition: border-color .2s;
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+        .f-group input:focus,
+        .f-group select:focus,
+        .f-group textarea:focus { border-color: var(--navy); }
+        .f-group textarea { resize: vertical; min-height: 110px; }
+        .btn-submit {
+            align-self: flex-start;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 13px 30px;
+            font-family: var(--sans);
+            font-size: .82rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            cursor: pointer;
+            transition: background .2s;
+        }
+        .btn-submit:hover { background: var(--amber); }
+
+        /* ------------------------------------------------
+           FOOTER
+        ------------------------------------------------ */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,.55);
+            padding: 60px 40px 36px;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            margin-bottom: 36px;
+        }
+        .footer-brand img {
+            height: 34px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 18px;
+        }
+        .footer-brand p {
+            font-size: .8rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,.38);
+            max-width: 320px;
+        }
+        .footer-col h5 {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.28);
+            margin-bottom: 18px;
+        }
+        .footer-col a {
+            display: block;
+            font-size: .82rem;
+            color: rgba(255,255,255,.5);
+            text-decoration: none;
+            margin-bottom: 9px;
+            transition: color .2s;
+        }
+        .footer-col a:hover { color: var(--white); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .72rem;
+            color: rgba(255,255,255,.22);
+        }
+
+        /* ------------------------------------------------
+           RESPONSIVE
+        ------------------------------------------------ */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-aside {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,.1);
+                padding-left: 0;
+                padding-top: 40px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .hero-stat { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+            .rl { grid-template-columns: 60px 1fr; }
+            .rl-body { grid-column: 2; }
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+            .val-grid { grid-template-columns: 1fr 1fr; }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 64px 24px; }
+            .header-inner { padding: 0 24px; }
+            .hero { padding: 64px 24px 56px; }
+            #partners { padding: 48px 24px; }
+            footer { padding: 48px 24px 32px; }
+
+            nav, .lang-toggle { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-aside { grid-template-columns: 1fr 1fr; }
+            .rl { grid-template-columns: 1fr; gap: 20px; }
+            .rl-num { font-size: 2.5rem; }
+            .val-grid { grid-template-columns: 1fr; }
+            .f-row { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .news-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="bar">
+    <span class="lang-en">FWO SBO Project · S002426N · 2025–2028</span>
+    <span class="lang-nl lang-hidden">FWO SBO Project · S002426N · 2025–2028</span>
+    <span class="sep">|</span>
+    <a href="https://columbus.onderwijskiezer.be" target="_blank">columbus.onderwijskiezer.be ↗</a>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <img src="https://jwillems89.github.io/compassplus/images/COMPASS-hor-rgb2.png" alt="COMPASS+">
+        </a>
+        <nav>
+            <a href="#about"><span class="lang-en">About</span><span class="lang-nl lang-hidden">Over ons</span></a>
+            <a href="#research"><span class="lang-en">Research</span><span class="lang-nl lang-hidden">Onderzoek</span></a>
+            <a href="#news"><span class="lang-en">News</span><span class="lang-nl lang-hidden">Nieuws</span></a>
+            <a href="#calendar"><span class="lang-en">Calendar</span><span class="lang-nl lang-hidden">Kalender</span></a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="lang-toggle">
+            <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" id="btn-nl" onclick="setLang('nl')">NL</button>
+        </div>
+        <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" onclick="closeMenu()">✕</button>
+    <a href="#about" onclick="closeMenu()"><span class="lang-en">About</span><span class="lang-nl lang-hidden">Over ons</span></a>
+    <a href="#research" onclick="closeMenu()"><span class="lang-en">Research</span><span class="lang-nl lang-hidden">Onderzoek</span></a>
+    <a href="#news" onclick="closeMenu()"><span class="lang-en">News</span><span class="lang-nl lang-hidden">Nieuws</span></a>
+    <a href="#calendar" onclick="closeMenu()"><span class="lang-en">Calendar</span><span class="lang-nl lang-hidden">Kalender</span></a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <div style="display:flex; gap:4px; margin-top:8px;">
+        <button class="lang-btn active" id="mob-btn-en" onclick="setLang('en'); closeMenu()">EN</button>
+        <button class="lang-btn" id="mob-btn-nl" onclick="setLang('nl'); closeMenu()">NL</button>
+    </div>
+</div>
+
+<!-- ====================================================
+     HERO
+===================================================== -->
+<div class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-eyebrow">
+                <span class="lang-en">FWO SBO · 4-Year Research Project · 2025–2028</span>
+                <span class="lang-nl lang-hidden">FWO SBO · 4-jarig Onderzoeksproject · 2025–2028</span>
+            </div>
+            <h1>
+                <span class="lang-en">Empowering the <em>Study Choice</em> Process</span>
+                <span class="lang-nl lang-hidden">Studiekeuze&shy;processen voor <em>Hoger Onderwijs</em> Versterken</span>
+            </h1>
+            <p class="hero-desc">
+                <span class="lang-en">Through online self-assessment feedback and effective career guidance — the COMPASS+ project makes Columbus more effective for every student transitioning to higher education.</span>
+                <span class="lang-nl lang-hidden">Via online zelfevaluatie-feedback en effectieve loopbaanbegeleiding — COMPASS+ maakt Columbus effectiever voor elke leerling in de transitie naar hoger onderwijs.</span>
+            </p>
+            <div class="hero-ctas">
+                <a href="#about" class="btn-amber">
+                    <span class="lang-en">About the project →</span>
+                    <span class="lang-nl lang-hidden">Over het project →</span>
+                </a>
+                <a href="https://columbus.onderwijskiezer.be" target="_blank" class="btn-ghost">Columbus ↗</a>
+            </div>
+        </div>
+
+        <div class="hero-aside">
+            <div class="aside-label lang-en">Project at a Glance</div>
+            <div class="aside-label lang-nl lang-hidden">Project in Cijfers</div>
+            <div class="hero-stat">
+                <div class="stat-num">48</div>
+                <div class="stat-label lang-en">months duration</div>
+                <div class="stat-label lang-nl lang-hidden">maanden looptijd</div>
+            </div>
+            <div class="hero-stat">
+                <div class="stat-num">15K+</div>
+                <div class="stat-label lang-en">Columbus users per year</div>
+                <div class="stat-label lang-nl lang-hidden">Columbus gebruikers per jaar</div>
+            </div>
+            <div class="hero-stat">
+                <div class="stat-num">30K+</div>
+                <div class="stat-label lang-en">students in longitudinal dataset</div>
+                <div class="stat-label lang-nl lang-hidden">leerlingen in longitudinale dataset</div>
+            </div>
+            <div class="hero-stat">
+                <div class="stat-num">4</div>
+                <div class="stat-label lang-en">partner institutions</div>
+                <div class="stat-label lang-nl lang-hidden">partnerinstellingen</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================
+     ABOUT
+===================================================== -->
+<section id="about">
+    <div class="inner">
+        <div class="sec-label lang-en">About the Project</div>
+        <div class="sec-label lang-nl lang-hidden">Over het Project</div>
+
+        <div class="about-grid">
+            <div>
+                <h2 class="sec-title">
+                    <span class="lang-en">Who we are &amp; <em>what we do</em></span>
+                    <span class="lang-nl lang-hidden">Wie we zijn &amp; <em>wat we doen</em></span>
+                </h2>
+                <div class="about-text">
+                    <p class="lang-en">Low academic success rates in higher education are a global concern. In Flanders, only <strong>29.5% of bachelor's students graduate within the theoretical duration</strong>. A key factor is the poor quality of the study choice process — particularly for students without optimal school guidance.</p>
+                    <p class="lang-nl lang-hidden">Lage academische succespercentages in het hoger onderwijs zijn een wereldwijde zorg. In Vlaanderen haalt slechts <strong>29,5% van de bachelorstudenten een diploma binnen de theoretische studieduur</strong>. Een sleutelfactor is de slechte kwaliteit van het studiekeuzeproces.</p>
+                    <p class="lang-en">The <strong>Columbus project</strong>, initiated in 2016 by the Flemish Ministry of Education, provides an online self-assessment tool with 15,000+ users per year. Despite its widespread adoption, the effectiveness of its feedback has never been empirically studied.</p>
+                    <p class="lang-nl lang-hidden">Het <strong>Columbus-project</strong>, gestart in 2016 door het Vlaams Ministerie van Onderwijs, biedt een online zelfevaluatie-instrument met 15.000+ gebruikers per jaar. Ondanks de brede adoptie is de effectiviteit van de feedback nooit empirisch onderzocht.</p>
+                    <p class="lang-en">COMPASS+ fills this gap with a 4-year mixed-methods research programme — and immediately translates findings into tools, training, and interventions through four valorization streams.</p>
+                    <p class="lang-nl lang-hidden">COMPASS+ vult deze lacune met een 4-jarig mixed-methods onderzoeksprogramma — en vertaalt bevindingen meteen naar tools, vorming en interventies via vier valorisatielijnen.</p>
+                </div>
+            </div>
+
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🔬</div>
+                    <div>
+                        <h4>Evidence-Based</h4>
+                        <p class="lang-en">Every valorization product is grounded in empirical findings from the three research lines.</p>
+                        <p class="lang-nl lang-hidden">Elk valorisatieproduct is gebaseerd op empirische bevindingen uit de drie onderzoekslijnen.</p>
+                    </div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🤝</div>
+                    <div>
+                        <h4 class="lang-en">Co-created</h4>
+                        <h4 class="lang-nl lang-hidden">Co-gecreëerd</h4>
+                        <p class="lang-en">16 advisory committee members from policy, schools, student organisations and professional partners.</p>
+                        <p class="lang-nl lang-hidden">16 leden van de adviescommissie uit beleid, scholen, leerlingenorganisaties en professionele partners.</p>
+                    </div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🔓</div>
+                    <div>
+                        <h4>Open Access</h4>
+                        <p class="lang-en">All products are integrated into the Columbus platform — freely accessible to all Flemish students, teachers and counselors.</p>
+                        <p class="lang-nl lang-hidden">Alle producten worden geïntegreerd in het Columbus-platform — vrij toegankelijk voor alle Vlaamse leerlingen, leerkrachten en begeleiders.</p>
+                    </div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">⚡</div>
+                    <div>
+                        <h4 class="lang-en">Direct Impact</h4>
+                        <h4 class="lang-nl lang-hidden">Directe Impact</h4>
+                        <p class="lang-en">Research feeds immediately into improved tools and school interventions — during the project, not after.</p>
+                        <p class="lang-nl lang-hidden">Onderzoek leidt meteen tot verbeterde tools en schoolinterventies — tijdens het project, niet erna.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================================================
+     RESEARCH
+===================================================== -->
+<section id="research">
+    <div class="inner">
+        <div class="sec-label lang-en">Research Programme</div>
+        <div class="sec-label lang-nl lang-hidden">Onderzoeksprogramma</div>
+        <h2 class="sec-title">
+            <span class="lang-en">Three <em>Research Lines</em></span>
+            <span class="lang-nl lang-hidden">Drie <em>Onderzoekslijnen</em></span>
+        </h2>
+        <p class="sec-sub">
+            <span class="lang-en">Each research line addresses a distinct set of questions using complementary methods — covering the full picture of feedback engagement and career guidance.</span>
+            <span class="lang-nl lang-hidden">Elke onderzoekslijn beantwoordt specifieke vragen via complementaire methoden — samen bieden ze een volledig beeld van feedbackgebruik en studiekeuzebegeleiding.</span>
+        </p>
+
+        <!-- RL 1 -->
+        <div class="rl">
+            <div class="rl-num">01</div>
+            <div class="rl-meta">
+                <div class="rl-tag lang-en">Longitudinal Survey &amp; Web-tracking</div>
+                <div class="rl-tag lang-nl lang-hidden">Longitudinaal Survey &amp; Web-tracking</div>
+                <h3>
+                    <span class="lang-en">Individual Antecedents &amp; <em>Outcomes</em></span>
+                    <span class="lang-nl lang-hidden">Individuele Antecedenten &amp; <em>Uitkomsten</em></span>
+                </h3>
+                <div class="rl-chips">
+                    <span class="chip">UGent</span>
+                    <span class="chip">UA</span>
+                    <span class="chip">4 studies</span>
+                </div>
+            </div>
+            <div class="rl-body">
+                <p class="lang-en">Using Columbus web tracking data from 30,000+ students (Cohorts 2022–2025), this research line explores which students engage with feedback, identifies distinct engagement profiles, and traces long-term effects on study paths in higher education.</p>
+                <p class="lang-nl lang-hidden">Via Columbus webtracking-data van 30.000+ leerlingen (cohorten 2022–2025) onderzoekt deze lijn welke leerlingen feedback gebruiken, identificeert engagementprofielen en volgt langetermijneffecten op studietrajecten in HO.</p>
+                <ul class="rl-objectives">
+                    <li class="lang-en">Explore individual antecedents of behavioral feedback (dis)engagement using Columbus web tracking data</li>
+                    <li class="lang-nl lang-hidden">Verken individuele antecedenten van gedragsmatig feedbackgebruik via Columbus webtracking-data</li>
+                    <li class="lang-en">Person-centered approach via Latent Profile Analysis (LPA) of feedback engagement</li>
+                    <li class="lang-nl lang-hidden">Persoonsgerichte aanpak via Latent Profielanalyse (LPA) van feedbackgebruik</li>
+                    <li class="lang-en">Contribution of behavioral feedback engagement to study paths in higher education</li>
+                    <li class="lang-nl lang-hidden">Bijdrage van feedbackgebruik aan studietrajecten in HO</li>
+                </ul>
+                <div class="study-card">
+                    <div class="study-card-label lang-en">Study 1.1 — Ongoing</div>
+                    <div class="study-card-label lang-nl lang-hidden">Studie 1.1 — Lopend</div>
+                    <p class="lang-en"><strong>Antecedents analysis</strong> — Exploratory regression · N&gt;30,000 · Cohorts 2022–2025 · Web tracking data</p>
+                    <p class="lang-nl lang-hidden"><strong>Antecedenten-analyse</strong> — Exploratieve regressie · N&gt;30.000 · Cohorten 2022–2025 · Webtracking-data</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RL 2 -->
+        <div class="rl">
+            <div class="rl-num">02</div>
+            <div class="rl-meta">
+                <div class="rl-tag lang-en">Lab Studies + Real-World Deployment</div>
+                <div class="rl-tag lang-nl lang-hidden">Labstudies + Implementatie</div>
+                <h3>
+                    <span class="lang-en">Mechanisms of <em>Feedback Engagement</em></span>
+                    <span class="lang-nl lang-hidden">Mechanismen van <em>Feedbackgebruik</em></span>
+                </h3>
+                <div class="rl-chips">
+                    <span class="chip">UA</span>
+                    <span class="chip">UGent</span>
+                    <span class="chip">3 studies</span>
+                </div>
+            </div>
+            <div class="rl-body">
+                <p class="lang-en">Through eye-tracking lab studies and real-world deployment in Columbus, this line examines how motivational and social comparison instructional nudges affect cognitive, emotional, and behavioral engagement — and how self-efficacy and self-regulation moderate these effects.</p>
+                <p class="lang-nl lang-hidden">Via eye-tracking labstudies en implementatie in Columbus onderzoekt deze lijn hoe motivationele en sociale vergelijkingsnudges cognitief, emotioneel en gedragsmatig engagement beïnvloeden — en hoe zelfeffectiviteit en zelfregulatie dit modereren.</p>
+                <ul class="rl-objectives">
+                    <li class="lang-en">Effectiveness of motivational vs. social comparison nudge interventions on all three forms of feedback engagement</li>
+                    <li class="lang-nl lang-hidden">Effectiviteit van motivationele vs. sociale vergelijkingsnudges op alle drie vormen van feedbackengagement</li>
+                    <li class="lang-en">Moderating role of academic self-efficacy on nudge effects</li>
+                    <li class="lang-nl lang-hidden">Modererende rol van academische zelfeffectiviteit op nudge-effecten</li>
+                    <li class="lang-en">Moderating role of self-regulation on nudge intervention effectiveness</li>
+                    <li class="lang-nl lang-hidden">Modererende rol van zelfregulatie op de effectiviteit van nudge-interventies</li>
+                </ul>
+                <div class="study-card">
+                    <div class="study-card-label lang-en">Study 2.1 — Ongoing</div>
+                    <div class="study-card-label lang-nl lang-hidden">Studie 2.1 — Lopend</div>
+                    <p class="lang-en"><strong>Lab Study — Self-efficacy</strong> — ~60 SE students · Eye-tracking + cued recall interviews · Antwerp Social Lab · 3 conditions</p>
+                    <p class="lang-nl lang-hidden"><strong>Labstudie — Zelfeffectiviteit</strong> — ~60 SO-leerlingen · Eye-tracking + gestimuleerde retrospectieve interviews · Antwerp Social Lab · 3 condities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RL 3 -->
+        <div class="rl">
+            <div class="rl-num">03</div>
+            <div class="rl-meta">
+                <div class="rl-tag lang-en">School-Based Intervention Research</div>
+                <div class="rl-tag lang-nl lang-hidden">Schoolinterventieonderzoek</div>
+                <h3>
+                    <span class="lang-en">Career Guidance <em>in Schools</em></span>
+                    <span class="lang-nl lang-hidden">Studiekeuzebegeleiding <em>op School</em></span>
+                </h3>
+                <div class="rl-chips">
+                    <span class="chip">KU Leuven</span>
+                    <span class="chip">UA</span>
+                    <span class="chip">3 studies</span>
+                </div>
+            </div>
+            <div class="rl-body">
+                <p class="lang-en">This research line investigates what makes school-based career guidance effective, tests a values-clarification micro-trial intervention, and examines the role of parental and peer support in students' career exploration and study choice outcomes.</p>
+                <p class="lang-nl lang-hidden">Deze onderzoekslijn onderzoekt wat schoolgebaseerde studiekeuzebegeleiding effectief maakt, test een micro-trial waardeverduidelijkingsinterventie en bestudeert de rol van ouder- en peerondersteuning.</p>
+                <ul class="rl-objectives">
+                    <li class="lang-en">Critical modalities for integrating Columbus within school-based career guidance</li>
+                    <li class="lang-nl lang-hidden">Kritische modaliteiten voor de integratie van Columbus in schoolgebaseerde studiekeuzebegeleiding</li>
+                    <li class="lang-en">Test if values &amp; goals clarification intervention enhances Columbus effectiveness</li>
+                    <li class="lang-nl lang-hidden">Test of een waardeverduidelijkingsinterventie de effectiviteit van Columbus vergroot</li>
+                    <li class="lang-en">Joint role of perceived parental and peer social support on career exploration outcomes</li>
+                    <li class="lang-nl lang-hidden">Gezamenlijke rol van ervaren ouder- en peerondersteuning op uitkomsten van loopbaanexploratie</li>
+                    <li class="lang-en">Interplay between school-based intervention and social support</li>
+                    <li class="lang-nl lang-hidden">Wisselwerking tussen schoolgebaseerde interventie en sociale ondersteuning</li>
+                </ul>
+                <div class="study-card">
+                    <div class="study-card-label lang-en">Study 3.1 — Ongoing</div>
+                    <div class="study-card-label lang-nl lang-hidden">Studie 3.1 — Lopend</div>
+                    <p class="lang-en"><strong>Online school survey</strong> — All Columbus-using schools · Multi-level analyses · Career guidance modalities vs. outcomes</p>
+                    <p class="lang-nl lang-hidden"><strong>Online schoolsurvey</strong> — Alle scholen die Columbus gebruiken · Multiniveau-analyses · Begeleidingsmodaliteiten vs. uitkomsten</p>
+                </div>
+                <div class="study-card">
+                    <div class="study-card-label lang-en">Study 3.2 — Ongoing</div>
+                    <div class="study-card-label lang-nl lang-hidden">Studie 3.2 — Lopend</div>
+                    <p class="lang-en"><strong>Micro-trial intervention</strong> — 24 schools · 6 per guidance profile · N≈1,043 students · Values clarification vs. control</p>
+                    <p class="lang-nl lang-hidden"><strong>Micro-trial interventie</strong> — 24 scholen · 6 per begeleidingsprofiel · N≈1.043 leerlingen · Waardeverduidelijking vs. controle</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     VALORISATION
+===================================================== -->
+<section id="valorisation">
+    <div class="inner">
+        <div class="sec-label lang-en">Valorisation</div>
+        <div class="sec-label lang-nl lang-hidden">Valorisatie</div>
+        <h2 class="sec-title">
+            <span class="lang-en">From research to <em>impact</em></span>
+            <span class="lang-nl lang-hidden">Van onderzoek naar <em>impact</em></span>
+        </h2>
+        <p class="sec-sub">
+            <span class="lang-en">COMPASS+ translates research findings into concrete tools, training and recommendations for schools, counsellors, students and policymakers.</span>
+            <span class="lang-nl lang-hidden">COMPASS+ vertaalt onderzoeksresultaten naar concrete tools, vorming en aanbevelingen voor scholen, begeleiders, leerlingen en beleidsmakers.</span>
+        </p>
+        <div class="val-grid">
+            <div class="val-item">
+                <div class="val-n">01 / Tool improvement</div>
+                <h3 class="lang-en">Improved Columbus feedback</h3>
+                <h3 class="lang-nl lang-hidden">Verbeterde Columbus-feedback</h3>
+                <p class="lang-en">Research insights are translated into improved feedback designs, instructional videos and nudges within the Columbus platform.</p>
+                <p class="lang-nl lang-hidden">Onderzoeksinzichten worden vertaald naar verbeterde feedbackontwerpen, instructievideo's en nudges binnen het Columbus-platform.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-n">02 / Professional development</div>
+                <h3 class="lang-en">Training for schools</h3>
+                <h3 class="lang-nl lang-hidden">Vorming voor scholen</h3>
+                <p class="lang-en">Teachers, counsellors and coaches receive training and materials to use Columbus feedback more effectively in study choice guidance.</p>
+                <p class="lang-nl lang-hidden">Leerkrachten, studiekeuzebegeleiders en coaches krijgen vorming en materialen om Columbus-feedback effectiever te gebruiken.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-n">03 / School practice</div>
+                <h3 class="lang-en">Guidance tools &amp; interventions</h3>
+                <h3 class="lang-nl lang-hidden">Begeleidingstools &amp; interventies</h3>
+                <p class="lang-en">The project develops and tests school-based interventions that help students clarify values, goals and study choice priorities.</p>
+                <p class="lang-nl lang-hidden">Het project ontwikkelt en test schoolgebaseerde interventies die leerlingen helpen om waarden, doelen en studiekeuzeprioriteiten te verhelderen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     PARTNERS
+===================================================== -->
+<section id="partners" style="padding: 60px 40px;">
+    <div class="inner">
+        <div class="partners-label lang-en">Supported by 16 organisations · Advisory Committee &amp; Research Consortium</div>
+        <div class="partners-label lang-nl lang-hidden">Ondersteund door 16 organisaties · Adviescommissie &amp; Onderzoeksconsortium</div>
+        <div class="partner-logos">
+            <img src="https://jwillems89.github.io/compassplus/images/UA.png" alt="Universiteit Antwerpen">
+            <img src="https://jwillems89.github.io/compassplus/images/UGent.png" alt="UGent">
+            <img src="https://jwillems89.github.io/compassplus/images/KU_Leuven.svg" alt="KU Leuven">
+            <img src="https://jwillems89.github.io/compassplus/images/AHS.png" alt="Artevelde Hogeschool">
+            <img src="https://jwillems89.github.io/compassplus/images/FWO.png" alt="FWO">
+        </div>
+        <div class="partner-names">
+            <span>Dept. Onderwijs</span><span>VLIR</span><span>GO!</span><span>OVSG</span>
+            <span>CNO</span><span>Scholierenkoepel</span><span>VVS</span><span>Eduflow</span>
+            <span>Schoolmakers</span><span>StudyChat</span><span>AGSO</span><span>OKO</span>
+        </div>
+    </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================================================
+     NEWS
+===================================================== -->
+<section id="news">
+    <div class="inner">
+        <div class="news-header">
+            <div>
+                <div class="sec-label lang-en">Latest Updates</div>
+                <div class="sec-label lang-nl lang-hidden">Laatste Nieuws</div>
+                <h2 class="sec-title" style="margin-bottom:0;">
+                    <span class="lang-en">News</span>
+                    <span class="lang-nl lang-hidden">Nieuws</span>
+                </h2>
+            </div>
+            <a href="#" class="link-arrow lang-en">All news →</a>
+            <a href="#" class="link-arrow lang-nl lang-hidden">Alle nieuws →</a>
+        </div>
+        <div class="news-empty">
+            <p class="lang-en">No news items yet — check back soon.</p>
+            <p class="lang-nl lang-hidden">Nog geen nieuwsberichten — kom binnenkort terug.</p>
+        </div>
+    </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================================================
+     CALENDAR
+===================================================== -->
+<section id="calendar">
+    <div class="inner">
+        <div class="sec-label lang-en">Upcoming Events</div>
+        <div class="sec-label lang-nl lang-hidden">Komende Activiteiten</div>
+        <h2 class="sec-title">
+            <span class="lang-en"><em>Calendar</em></span>
+            <span class="lang-nl lang-hidden"><em>Kalender</em></span>
+        </h2>
+        <div class="cal-wrap">
+            <div class="cal-nav">
+                <button onclick="changeMonth(-1)">‹</button>
+                <div class="cal-month" id="calLabel">—</div>
+                <button onclick="changeMonth(1)">›</button>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+            <div class="cal-legend">
+                <span><i style="background:var(--navy);"></i>
+                    <span class="lang-en">Today</span><span class="lang-nl lang-hidden">Vandaag</span>
+                </span>
+                <span><i style="background:var(--amber); border-radius:50%;"></i>
+                    <span class="lang-en">Event</span><span class="lang-nl lang-hidden">Activiteit</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================================================
+     CONTACT
+===================================================== -->
+<section id="contact">
+    <div class="inner">
+        <div class="sec-label lang-en">Get in Touch</div>
+        <div class="sec-label lang-nl lang-hidden">Neem Contact op</div>
+        <h2 class="sec-title">
+            <span class="lang-en">We'd love to <em>hear from you</em></span>
+            <span class="lang-nl lang-hidden">Neem gerust <em>contact op</em></span>
+        </h2>
+        <div class="contact-grid">
+            <div>
+                <p class="contact-lead lang-en">Interested in collaborating, implementing Columbus in your school, inviting a researcher for a talk, or learning more about the project?</p>
+                <p class="contact-lead lang-nl lang-hidden">Geïnteresseerd in samenwerken, Columbus implementeren in uw school, een onderzoeker uitnodigen, of meer weten over het project?</p>
+                <div class="cinfo">
+                    <div class="cinfo-icon">👤</div>
+                    <div>
+                        <div class="cinfo-tag lang-en">Principal Investigator</div>
+                        <div class="cinfo-tag lang-nl lang-hidden">Hoofdonderzoeker</div>
+                        <div class="cinfo-val">Prof. Vincent Donche</div>
+                    </div>
+                </div>
+                <div class="cinfo">
+                    <div class="cinfo-icon">🏛️</div>
+                    <div>
+                        <div class="cinfo-tag lang-en">Host Institution</div>
+                        <div class="cinfo-tag lang-nl lang-hidden">Coördinerende Instelling</div>
+                        <div class="cinfo-val">University of Antwerp</div>
+                        <div class="cinfo-sub">Research Group Edubron</div>
+                    </div>
+                </div>
+                <div class="cinfo">
+                    <div class="cinfo-icon">💼</div>
+                    <div>
+                        <div class="cinfo-tag lang-en">Funder</div>
+                        <div class="cinfo-tag lang-nl lang-hidden">Financierder</div>
+                        <div class="cinfo-val">FWO — Research Foundation Flanders</div>
+                        <div class="cinfo-sub">S002426N</div>
+                    </div>
+                </div>
+                <div class="cinfo">
+                    <div class="cinfo-icon">🌐</div>
+                    <div>
+                        <div class="cinfo-tag">Columbus</div>
+                        <div class="cinfo-val"><a href="https://columbus.onderwijskiezer.be" target="_blank">columbus.onderwijskiezer.be ↗</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="c-form" onsubmit="return false;">
+                <div class="f-row">
+                    <div class="f-group">
+                        <label class="lang-en">First name</label>
+                        <label class="lang-nl lang-hidden">Voornaam</label>
+                        <input type="text">
+                    </div>
+                    <div class="f-group">
+                        <label class="lang-en">Last name</label>
+                        <label class="lang-nl lang-hidden">Achternaam</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="f-group">
+                    <label class="lang-en">Email</label>
+                    <label class="lang-nl lang-hidden">E-mailadres</label>
+                    <input type="email">
+                </div>
+                <div class="f-group">
+                    <label class="lang-en">I am a…</label>
+                    <label class="lang-nl lang-hidden">Ik ben een…</label>
+                    <select>
+                        <option value="">—</option>
+                        <option>Teacher / School counselor</option>
+                        <option>School administrator</option>
+                        <option>Researcher / Academic</option>
+                        <option>Policymaker</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="f-group">
+                    <label class="lang-en">Message</label>
+                    <label class="lang-nl lang-hidden">Bericht</label>
+                    <textarea></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span class="lang-en">Send message →</span>
+                    <span class="lang-nl lang-hidden">Verstuur bericht →</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     FOOTER
+===================================================== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="https://jwillems89.github.io/compassplus/images/COMPASS-hor-rgb2.png" alt="COMPASS+">
+                <p class="lang-en">FWO SBO Project S002426N — Empowering the Study Choice Process for Higher Education through Online Self-Assessment Feedback and Effective Career Guidance. Lead institution: University of Antwerp.</p>
+                <p class="lang-nl lang-hidden">FWO SBO Project S002426N — Studiekeuzeprocessen voor hoger onderwijs versterken via online zelfevaluatie-feedback en effectieve loopbaanbegeleiding. Promotor: Universiteit Antwerpen.</p>
+            </div>
+            <div class="footer-col">
+                <h5 class="lang-en">Navigation</h5>
+                <h5 class="lang-nl lang-hidden">Navigatie</h5>
+                <a href="#about"><span class="lang-en">About</span><span class="lang-nl lang-hidden">Over ons</span></a>
+                <a href="#research"><span class="lang-en">Research</span><span class="lang-nl lang-hidden">Onderzoek</span></a>
+                <a href="#news"><span class="lang-en">News</span><span class="lang-nl lang-hidden">Nieuws</span></a>
+                <a href="#calendar"><span class="lang-en">Calendar</span><span class="lang-nl lang-hidden">Kalender</span></a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h5>Links</h5>
+                <a href="https://columbus.onderwijskiezer.be" target="_blank">columbus.onderwijskiezer.be ↗</a>
+                <a href="https://fwo.be" target="_blank">fwo.be ↗</a>
+                <a href="https://orcid.org/0000-0002-9405-3896" target="_blank">ORCID — V. Donche ↗</a>
+                <a href="https://jwillems89.github.io/admin" target="_blank">Admin Login ↗</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 COMPASS+ · FWO SBO S002426N · UA · UGent · KU Leuven · AHS · FWO</span>
+            <span style="font-family:var(--mono); font-size:.62rem; opacity:.6;">S002426N</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ================================================
+// LANGUAGE
+// ================================================
+let lang = 'en';
+
+function setLang(l) {
+    lang = l;
+    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('lang-hidden', l !== 'en'));
+    document.querySelectorAll('.lang-nl').forEach(el => el.classList.toggle('lang-hidden', l !== 'nl'));
+    ['btn-en','btn-nl','mob-btn-en','mob-btn-nl'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', id.includes(l));
+    });
+    document.documentElement.lang = l;
+    renderCal();
+}
+
+// ================================================
+// MOBILE MENU
+// ================================================
+function openMenu()  { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+// ================================================
+// CALENDAR
+// ================================================
+let calCur = new Date();
+
+const MONTHS = {
+    en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+    nl: ['Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December']
+};
+const DAYS = {
+    en: ['Mo','Tu','We','Th','Fr','Sa','Su'],
+    nl: ['Ma','Di','Wo','Do','Vr','Za','Zo']
+};
+
+function renderCal() {
+    const grid = document.getElementById('calGrid');
+    const label = document.getElementById('calLabel');
+    const today = new Date();
+    const y = calCur.getFullYear(), m = calCur.getMonth();
+
+    label.textContent = MONTHS[lang][m] + ' ' + y;
+
+    const first = new Date(y, m, 1);
+    const last  = new Date(y, m + 1, 0);
+    let dow = first.getDay(); // 0=Sun
+    dow = dow === 0 ? 6 : dow - 1; // Mon-first
+
+    let html = DAYS[lang].map(d => `<div class="cal-dh">${d}</div>`).join('');
+
+    // prev month tail
+    const prevLast = new Date(y, m, 0).getDate();
+    for (let i = dow - 1; i >= 0; i--) html += `<div class="cal-d other">${prevLast - i}</div>`;
+
+    // current month
+    for (let d = 1; d <= last.getDate(); d++) {
+        const isToday = d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
+        html += `<div class="cal-d${isToday ? ' today' : ''}">${d}</div>`;
+    }
+
+    // next month head
+    const total = Math.ceil((dow + last.getDate()) / 7) * 7;
+    for (let d = 1; d <= total - dow - last.getDate(); d++) html += `<div class="cal-d other">${d}</div>`;
+
+    grid.innerHTML = html;
+}
+
+function changeMonth(dir) { calCur.setMonth(calCur.getMonth() + dir); renderCal(); }
+
+renderCal();
+</script>
+</body>
+</html>
