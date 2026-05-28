@@ -81,11 +81,11 @@ img{max-width:100%;display:block}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:80px;
-  gap:2rem;
-  max-width:1200px;
+  height:86px;
+  gap:2.5rem;
+  max-width:1280px;
   margin:0 auto;
-  padding:0 70px;
+  padding:0 clamp(2rem,5vw,5rem);
 }
 .logo{
   display:flex;
@@ -99,8 +99,8 @@ img{max-width:100%;display:block}
 .logo-mark{width:40px;height:40px;border-radius:10px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:17px;font-weight:900;color:var(--gold-light);flex-shrink:0}
 .logo-name{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--navy);letter-spacing:.02em}
 .logo-sub{font-size:11px;color:var(--text-muted);letter-spacing:.04em}
-.nav-links{display:flex;gap:.2rem;list-style:none;flex:1;justify-content:center}
-.nav-link{display:block;padding:.5rem .85rem;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--text-mid);transition:all .18s}
+.nav-links{display:flex;gap:.45rem;list-style:none;flex:1;justify-content:center}
+.nav-link{display:block;padding:.65rem 1rem;border-radius:var(--r-sm);font-size:15px;font-weight:500;color:var(--text-mid);transition:all .18s}
 .nav-link:hover,.nav-link.active{color:var(--navy);background:var(--gold-pale)}
 .nav-link.active{font-weight:600}
 .nav-cta{background:var(--navy)!important;color:var(--white)!important;font-weight:600!important}
@@ -186,12 +186,40 @@ img{max-width:100%;display:block}
 /* ════════════════════════════════════════
    INTRO STRIP
 ════════════════════════════════════════ */
-.intro-strip{background:var(--gold-pale);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:1.75rem 0}
-.intro-strip-inner{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
-.intro-icon{font-size:2rem;flex-shrink:0}
+.intro-strip{background:var(--gold-pale);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:2rem 0}
+.intro-strip-inner{display:grid;grid-template-columns:auto 1fr;gap:1.75rem;align-items:center}
+.intro-icon{
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  border:2px solid rgba(196,151,58,.35);
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.intro-icon svg{
+  width:46px;
+  height:46px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.intro-icon svg path:first-of-type{
+  fill:currentColor;
+  stroke:none;
+}
 .intro-strip p{font-size:1.02rem;color:var(--navy-mid);line-height:1.75}
 .intro-strip strong{color:var(--navy);font-weight:700}
 .intro-strip em{font-style:italic}
+@media(max-width:700px){
+  .intro-strip-inner{grid-template-columns:1fr;gap:1rem}
+  .intro-icon{width:58px;height:58px}
+  .intro-icon svg{width:36px;height:36px}
+}
 
 /* ════════════════════════════════════════
    SECTION HEADER
