@@ -185,7 +185,10 @@ function renderTeam() {
 
   el.innerHTML = sorted.map(m => `
     <div class="team-card">
-      <div class="team-avatar">${m.initials}</div>
+      <div class="team-avatar">
+        ${m.photo ? `<img src="${m.photo}" alt="${m.name}" onerror="this.remove(); this.parentElement.classList.add('photo-failed');">` : ''}
+        <span>${m.initials}</span>
+      </div>
 
       <div class="team-name">${m.name}</div>
 
