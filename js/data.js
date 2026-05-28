@@ -116,7 +116,7 @@ COMPASS.team = [
       role_nl: "Promotor / Hoofdonderzoeker",
       institution: "University of Antwerp",
       department: "Research Group Edubron",
-      research_lines: ["PI", "RL1 Co-promotor", "RL2 Lead", "Coordination"],
+      research_lines: ["PI", "RL1", "RL2 Lead", "Coordination"],
       researchers: ["Dr. Jonas Willems", "Dra.Roselyne Willems"],
       orcid: "0000-0002-9405-3896",
       order: 1
