@@ -116,7 +116,7 @@ COMPASS.team = [
       role_nl: "Promotor / Hoofdonderzoeker",
       institution: "University of Antwerp",
       department: "Research Group Edubron",
-      research_lines: ["PI", "RL2 Lead", "Coordination"],
+      research_lines: ["PI", "RL1 Co-promotor", "RL2 Lead", "Coordination"],
       researchers: ["Dr. Jonas Willems", "Dra.Roselyne Willems"],
       orcid: "0000-0002-9405-3896",
       order: 1
@@ -142,7 +142,7 @@ COMPASS.team = [
     role_nl: "promotor",
     institution: "KU Leuven",
     department: "School Psychology & Dev. in Context",
-    research_lines: ["RL1", "RL3 Lead"],
+    research_lines: ["RL3 Lead"],
     researchers: ["Dr. Alicia Ramos", "Dr. Ilse Van Damme", "Dra. Akemi Gabriela Watanabe Morales"],
     orcid: "",
     order: 3
@@ -166,7 +166,7 @@ COMPASS.team = [
 COMPASS.settings = {
   title_en: "COMPASS+",
   title_nl: "COMPASS+",
-  tagline_en: "Empowering the Study Choice Process for Higher Education",
+  tagline_en: "Enhancing the Study Choice Process for Higher Education",
   tagline_nl: "Studiekeuzeprocessen voor Hoger Onderwijs Versterken",
   contact_email: "vincent.donche@uantwerpen.be",
   columbus_url: "https://columbus.onderwijskiezer.be",
