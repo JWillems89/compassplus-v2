@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "en"
+
+collections:
+  - name: "news"
+    label: "News & Publications"
+    label_singular: "News item"
+    folder: "_data/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (NL)", name: "title_nl", widget: "string" }
+      - { label: "Category (EN)", name: "category_en", widget: "select", options: ["Publication", "Conference", "Advisory Committee", "Tool Update", "Project Launch", "Training"] }
+      - { label: "Category (NL)", name: "category_nl", widget: "select", options: ["Publicatie", "Conferentie", "Klankbordgroep", "Tool Update", "Projectstart", "Vorming"] }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Excerpt (EN)", name: "excerpt_en", widget: "text", required: false }
+      - { label: "Excerpt (NL)", name: "excerpt_nl", widget: "text", required: false }
+      - { label: "Body (EN)", name: "body_en", widget: "markdown", required: false }
+      - { label: "Body (NL)", name: "body_nl", widget: "markdown", required: false }
+      - { label: "Link URL", name: "link", widget: "string", required: false }
+
+  - name: "events"
+    label: "Calendar Events"
+    label_singular: "Event"
+    folder: "_data/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (NL)", name: "title_nl", widget: "string" }
+      - { label: "Type (EN)", name: "type_en", widget: "select", options: ["Advisory Committee", "Webinar", "Conference", "Lab Study", "Training", "Milestone"] }
+      - { label: "Type (NL)", name: "type_nl", widget: "select", options: ["Klankbordgroep", "Webinar", "Conferentie", "Labstudie", "Vorming", "Mijlpaal"] }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Location (EN)", name: "location_en", widget: "string", required: false }
+      - { label: "Location (NL)", name: "location_nl", widget: "string", required: false }
+      - { label: "Time", name: "time", widget: "string", required: false, hint: "e.g. 09:30–13:00" }
+      - { label: "Description (EN)", name: "description_en", widget: "text", required: false }
+      - { label: "Description (NL)", name: "description_nl", widget: "text", required: false }
+
+  - name: "team"
+    label: "Team Members"
+    label_singular: "Team member"
+    folder: "_data/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Initials", name: "initials", widget: "string", hint: "2 letters, e.g. VD" }
+      - { label: "Role (EN)", name: "role_en", widget: "string" }
+      - { label: "Role (NL)", name: "role_nl", widget: "string" }
+      - { label: "Institution", name: "institution", widget: "string" }
+      - { label: "Department", name: "department", widget: "string", required: false }
+      - { label: "Research Lines", name: "research_lines", widget: "list", allow_add: true }
+      - { label: "ORCID", name: "orcid", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 99 }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Site title (EN)", name: "title_en", widget: "string", default: "COMPASS+" }
+          - { label: "Site title (NL)", name: "title_nl", widget: "string", default: "COMPASS+" }
+          - { label: "Tagline (EN)", name: "tagline_en", widget: "string" }
+          - { label: "Tagline (NL)", name: "tagline_nl", widget: "string" }
+          - { label: "Contact email", name: "contact_email", widget: "string" }
+          - { label: "Columbus URL", name: "columbus_url", widget: "string", default: "https://columbus.onderwijskiezer.be" }
+          - { label: "Show banner", name: "show_banner", widget: "boolean", default: true }
+          - { label: "Banner text (EN)", name: "banner_en", widget: "string", required: false }
+          - { label: "Banner text (NL)", name: "banner_nl", widget: "string", required: false }
