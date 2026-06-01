@@ -69,6 +69,14 @@ function formatDateShort(dateStr) {
   return d.toLocaleDateString(lang === 'nl' ? 'nl-BE' : 'en-GB', { year: 'numeric', month: 'short' });
 }
 
+function getEventColor(ev) {
+  const type = (ev.type_en || ev.type_nl || '').toLowerCase();
+  if (type.includes('conference')) return '#0E1B35';
+  if (type.includes('study') || type.includes('lab')) return '#2D7A4F';
+  if (type.includes('webinar') || type.includes('training')) return '#3D5080';
+  return '#C4973A';
+}
+
 /* ── Render: Home news teaser ── */
 function renderHomeNews() {
   const el = document.getElementById('home-news');
@@ -160,8 +168,9 @@ function renderCalEvents() {
     const d = new Date(ev.date);
     const day = d.getDate();
     const month = d.toLocaleDateString(lang === 'nl' ? 'nl-BE' : 'en-GB', { month: 'short' }).toUpperCase();
+    const color = getEventColor(ev);
     return `
-      <div class="event-card">
+      <div class="event-card" style="--event-color:${color}">
         <div class="event-date-box">
           <div class="event-date-day">${day}</div>
           <div class="event-date-month">${month}</div>
@@ -237,10 +246,11 @@ let calYear, calMonth;
 })();
 
 function getEventDates() {
-  const set = new Set();
+  const set = new Map();
   COMPASS.events.forEach(ev => {
     const d = new Date(ev.date);
-    set.add(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`);
+    const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    if (!set.has(key)) set.set(key, getEventColor(ev));
   });
   return set;
 }
@@ -271,9 +281,10 @@ function renderCal() {
   // current month
   for (let i = 1; i <= daysInMonth; i++) {
     const isToday = i === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear();
-    const hasEvent = eventDates.has(`${calYear}-${calMonth}-${i}`);
+    const eventColor = eventDates.get(`${calYear}-${calMonth}-${i}`);
+    const hasEvent = Boolean(eventColor);
     const cls = ['cal-day', isToday ? 'today' : '', hasEvent ? 'has-event' : ''].filter(Boolean).join(' ');
-    html += `<div class="${cls}">${i}</div>`;
+    html += `<div class="${cls}"${hasEvent ? ` style="--event-color:${eventColor}"` : ''}>${i}</div>`;
   }
 
   // next month padding
