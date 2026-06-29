@@ -73,7 +73,7 @@ function getEventColor(ev) {
   const type = (ev.type_en || ev.type_nl || '').toLowerCase();
   if (type.includes('conference')) return '#0E1B35';
   if (type.includes('study') || type.includes('lab')) return '#2D7A4F';
-  if (type.includes('webinar') || type.includes('training') || type.includes('sid-in') || type.includes('sett') || type.includes('session')) return '#3D5080';
+  if (type.includes('webinar') || type.includes('training') || type.includes('outreach') || type.includes('valorisation') || type.includes('valorisatie')) return '#3D5080';
   return '#C4973A';
 }
 
