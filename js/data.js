@@ -79,6 +79,42 @@ COMPASS.news = [
     excerpt_en: "COMPASS+ has been accepted to present at the EARLI SIG 27 conference in the \"No-or-not-so-perfect data\" format about the challenges and methodological choices involved when operationalizing web-tracking data into a behavioral engagement index.",
     excerpt_nl: "COMPASS+ is aanvaard om te presenteren op de EARLI SIG 27 conferentie in het \"No-or-not-so-perfect data\" format waar we het zullen hebben over de uitdagingen en methodologische keuzes bij het operationaliseren van web-tracking data tot een gedragsmatige feedbackengagement index.",
     link: ""
+  },
+  {
+    id: "sid-in-2026-recap",
+    title_en: "COMPASS+ meets thousands of students at the 2026 SID-in info days",
+    title_nl: "COMPASS+ ontmoet duizenden leerlingen op de SID-in infodagen van 2026",
+    category_en: "Outreach",
+    category_nl: "Valorisatie",
+    date: "2026-02-26",
+    featured: false,
+    excerpt_en: "As part of its valorisation efforts, the COMPASS+ team was present at the SID-in study information days in Leuven, Ghent, Genk, Antwerp and Kortrijk, informing future students and their teachers about the Columbus self-assessment tool.",
+    excerpt_nl: "In het kader van de valorisatiewerking was het COMPASS+-team aanwezig op de SID-in studie-informatiedagen in Leuven, Gent, Genk, Antwerpen en Kortrijk, om toekomstige studenten en hun leerkrachten te informeren over de Columbus zelfevaluatietool.",
+    link: ""
+  },
+  {
+    id: "sett-2027",
+    title_en: "COMPASS+ confirms its presence again at SETT 2027",
+    title_nl: "COMPASS+ bevestigt opnieuw zijn aanwezigheid op SETT 2027",
+    category_en: "Outreach",
+    category_nl: "Valorisatie",
+    date: "2027-03-11",
+    featured: false,
+    excerpt_en: "COMPASS+ will once again be present at SETT, the exhibition on the transformation of education and the role of technology in it, taking place in Ghent. The team will showcase the Columbus self-assessment tool to teachers and school leaders.",
+    excerpt_nl: "COMPASS+ is opnieuw aanwezig op SETT, de beurs rond de transformatie van het onderwijs en de rol van technologie daarbij, in Gent. Het team stelt er de Columbus zelfevaluatietool voor aan leerkrachten en schoolleiders.",
+    link: ""
+  },
+  {
+    id: "school-outreach-2027",
+    title_en: "COMPASS+ valorisation calendar: info sessions for schools in 2027",
+    title_nl: "COMPASS+ valorisatiekalender: infosessies voor scholen in 2027",
+    category_en: "Outreach",
+    category_nl: "Valorisatie",
+    date: "2027-02-04",
+    featured: false,
+    excerpt_en: "In 2027, COMPASS+ will provide several info sessions for schools, including a Learning Support Theme Day at CNO Antwerp and an online STEM Netelands session, introducing teachers, guidance counsellors and school leadership to the project's findings and tools.",
+    excerpt_nl: "In 2027 verzorgt COMPASS+ verschillende infosessies voor scholen, waaronder een Themadag Leerzorg bij CNO Antwerpen en een online STEM Netelands-sessie, waarin leerkrachten, studiekeuzebegeleiders en directies kennismaken met de inzichten en tools van het project.",
+    link: ""
   }
 ];
 
@@ -104,10 +140,10 @@ COMPASS.events = [
     title_nl: "Klankbordgroepvergadering #2 — Tussentijdse opvolging",
     type_en: "Advisory Committee",
     type_nl: "Klankbordgroep",
-    date: "2026-11-20",
+    date: "2026-12-10",
     location_en: "University of Antwerp",
     location_nl: "University of Antwerp",
-    time: "tba",
+    time: "13u-15u",
     description_en: "Mid-project advisory committee meeting reviewing progress across all three research lines & valorisation.",
     description_nl: "Tussentijdse klankbordgroepvergadering met overzicht van voortgang over de drie onderzoekslijnen en valorisatie."
   },
@@ -166,6 +202,202 @@ COMPASS.events = [
     time: "TBD",
     description_en: "Conference on advancing the computational learning sciences through process measures of learning. A COMPASS+ researcher will present in the \"no-or-not-so-perfect data\" format on the challenges involved in operationalising web-tracking data into a behavioral feedback engagement index.",
     description_nl: "Conferentie over het meten van leerprocessen in realtime. Een COMPASS+-onderzoeker zal in het \"no-or-not-so-perfect data\" format presenteren over de uitdagingen bij de operationalisatie van web-tracking data tot een gedragsmatige feedbackengagement index."
+  },
+
+  {
+    id: "sid-in-leuven-1",
+    title_en: "SID-in Leuven",
+    title_nl: "SID-in Leuven",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-14",
+    location_en: "Leuven",
+    location_nl: "Leuven",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-leuven-2",
+    title_en: "SID-in Leuven",
+    title_nl: "SID-in Leuven",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-15",
+    location_en: "Leuven",
+    location_nl: "Leuven",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-gent-1",
+    title_en: "SID-in Ghent",
+    title_nl: "SID-in Gent",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-21",
+    location_en: "Ghent",
+    location_nl: "Gent",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-gent-2",
+    title_en: "SID-in Ghent",
+    title_nl: "SID-in Gent",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-22",
+    location_en: "Ghent",
+    location_nl: "Gent",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-genk-1",
+    title_en: "SID-in Genk",
+    title_nl: "SID-in Genk",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-28",
+    location_en: "Genk",
+    location_nl: "Genk",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-genk-2",
+    title_en: "SID-in Genk",
+    title_nl: "SID-in Genk",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-01-29",
+    location_en: "Genk",
+    location_nl: "Genk",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-antwerpen-1",
+    title_en: "SID-in Antwerp",
+    title_nl: "SID-in Antwerpen",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-02-18",
+    location_en: "Antwerp",
+    location_nl: "Antwerpen",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-antwerpen-2",
+    title_en: "SID-in Antwerp",
+    title_nl: "SID-in Antwerpen",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-02-19",
+    location_en: "Antwerp",
+    location_nl: "Antwerpen",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-kortrijk-1",
+    title_en: "SID-in Kortrijk",
+    title_nl: "SID-in Kortrijk",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-02-25",
+    location_en: "Kortrijk",
+    location_nl: "Kortrijk",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sid-in-kortrijk-2",
+    title_en: "SID-in Kortrijk",
+    title_nl: "SID-in Kortrijk",
+    type_en: "SID-IN",
+    type_nl: "SID-IN",
+    date: "2026-02-26",
+    location_en: "Kortrijk",
+    location_nl: "Kortrijk",
+    time: "9u-16u",
+    description_en: "Study information day for final-year secondary school students, introducing the Columbus self-assessment tool.",
+    description_nl: "Studie-informatiedag voor laatstejaars secundair onderwijs, met voorstelling van de Columbus zelfevaluatietool."
+  },
+
+  {
+    id: "sett-2027-day1",
+    title_en: "SETT Fair",
+    title_nl: "SETT-beurs",
+    type_en: "SETT",
+    type_nl: "SETT",
+    date: "2027-03-11",
+    location_en: "Ghent",
+    location_nl: "Gent",
+    time: "",
+    description_en: "An exhibition centered on the transformation of education and the role technology plays in it.",
+    description_nl: "Beurs rond de transformatie van het onderwijs en de rol die technologie daarbij speelt."
+  },
+
+  {
+    id: "sett-2027-day2",
+    title_en: "SETT Fair",
+    title_nl: "SETT-beurs",
+    type_en: "SETT",
+    type_nl: "SETT",
+    date: "2027-03-12",
+    location_en: "Ghent",
+    location_nl: "Gent",
+    time: "",
+    description_en: "An exhibition centered on the transformation of education and the role technology plays in it.",
+    description_nl: "Beurs rond de transformatie van het onderwijs en de rol die technologie daarbij speelt."
+  },
+
+  {
+    id: "theme-day-leerzorg-2027",
+    title_en: "Learning Support Theme Day",
+    title_nl: "Themadag Leerzorg",
+    type_en: "Session",
+    type_nl: "Lezing",
+    date: "2027-02-04",
+    location_en: "CNO Antwerp",
+    location_nl: "CNO Antwerpen",
+    time: "",
+    description_en: "Introductory session for teachers, guidance counselors and schools.",
+    description_nl: "Introductiesessie voor leerkrachten, studiekeuzebegeleiders en directie."
+  },
+
+  {
+    id: "stem-netelands-2027",
+    title_en: "STEM Netelands Introduction Session",
+    title_nl: "STEM Netelands Introductiesessie",
+    type_en: "Session",
+    type_nl: "Sessie",
+    date: "2027-09-29",
+    location_en: "Online",
+    location_nl: "Online",
+    time: "15u-16u",
+    description_en: "Introductory session for teachers, guidance counselors and schools.",
+    description_nl: "Introductiesessie voor leerkrachten, studiekeuzebegeleiders en directie."
   }
 ];
 
