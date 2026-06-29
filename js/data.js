@@ -142,7 +142,7 @@ COMPASS.events = [
     type_nl: "Klankbordgroep",
     date: "2026-12-10",
     location_en: "University of Antwerp",
-    location_nl: "University of Antwerp",
+    location_nl: "Universiteit Antwerpen",
     time: "13u-15u",
     description_en: "Mid-project advisory committee meeting reviewing progress across all three research lines & valorisation.",
     description_nl: "Tussentijdse klankbordgroepvergadering met overzicht van voortgang over de drie onderzoekslijnen en valorisatie."
