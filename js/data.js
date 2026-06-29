@@ -43,6 +43,42 @@ COMPASS.news = [
     excerpt_en: "A COMPASS+ contribution on study choice and feedback engagement has been accepted for presentation at the European First Year Experience (EFYE) Conference 2026 in Szeged.",
     excerpt_nl: "Een COMPASS+ bijdrage over studiekeuze en feedbackgebruik werd aanvaard voor presentatie op de European First Year Experience (EFYE) Conference 2026 in Szeged.",
     link: ""
+  },
+  {
+    id: "earli-2026",
+    title_en: "COMPASS+ presented at EARLI",
+    title_nl: "COMPASS+ voorgesteld op EARLI",
+    category_en: "Conference",
+    category_nl: "Conferentie",
+    date: "2026-05-15",
+    featured: false,
+    excerpt_en: "Researchers presented preliminary findings on feedback engagement.",
+    excerpt_nl: "Onderzoekers presenteerden voorlopige bevindingen over feedbackgebruik.",
+    link: ""
+  },
+  {
+    id: "efye-2026-rl1-presented",
+    title_en: "Research line 1 of COMPASS+ presented at EFYE 2026",
+    title_nl: "Onderzoekslijn 1 van COMPASS+ voorgesteld op EFYE 2026",
+    category_en: "Conference",
+    category_nl: "Conferentie",
+    date: "2026-06-11",
+    featured: false,
+    excerpt_en: "Researchers presented preliminary findings on individual antecedents of behavioral feedback engagement with the Columbus tool, using web-tracking data from over 10,000 students.",
+    excerpt_nl: "Onderzoekers presenteerden voorlopige bevindingen over individuele antecedenten van gedragsmatige feedbackengagement met Columbus, op basis van de web-trackingdata van meer dan 10,000 leerlingen.",
+    link: ""
+  },
+  {
+    id: "earli-sig27-accepted",
+    title_en: "COMPASS+ will present at EARLI SIG 27",
+    title_nl: "COMPASS+ aanvaard op EARLI SIG 27",
+    category_en: "Conference",
+    category_nl: "Conferentie",
+    date: "2026-11-18",
+    featured: false,
+    excerpt_en: "COMPASS+ has been accepted to present at the EARLI SIG 27 conference in the \"No-or-not-so-perfect data\" format about the challenges and methodological choices involved when operationalizing web-tracking data into a behavioral engagement index.",
+    excerpt_nl: "COMPASS+ is aanvaard om te presenteren op de EARLI SIG 27 conferentie in het \"No-or-not-so-perfect data\" format waar we het zullen hebben over de uitdagingen en methodologische keuzes bij het operationaliseren van web-tracking data tot een gedragsmatige feedbackengagement index.",
+    link: ""
   }
 ];
 
@@ -61,7 +97,7 @@ COMPASS.events = [
     description_en: "First advisory committee meeting - Project introduction & Aligment.",
     description_nl: "Eerste klankbordgroepvergadering - Introductie project & Afstemming."
   },
-  
+
  {
     id: "klankbord-2",
     title_en: "Klankbordgroep Meeting #2 — Mid-project review",
@@ -75,7 +111,7 @@ COMPASS.events = [
     description_en: "Mid-project advisory committee meeting reviewing progress across all three research lines & valorisation.",
     description_nl: "Tussentijdse klankbordgroepvergadering met overzicht van voortgang over de drie onderzoekslijnen en valorisatie."
   },
-  
+
   {
     id: "lab-study-2",
     title_en: "RL2 Lab Study 2 — Self-efficact study - start data collection",
@@ -89,21 +125,48 @@ COMPASS.events = [
     description_en: "Data collection for the first eye-tracking lab study examining self-efficacy as moderator of nudge effectiveness.",
     description_nl: "Dataverzameling voor de eerste eye-tracking labstudie over zelfeffectiviteit als moderator van nudge-effectiviteit."
   },
-  
+
   {
     id: "EFYE-2026",
-    title_en: "EFYE 2026 — COMPASS+ Paper Presentation",
-    title_nl: "EFYE 2026 — COMPASS+ Paperpresentatie",
+    title_en: "EFYE 2026 — European First Year Experience",
+    title_nl: "EFYE 2026",
     type_en: "Conference",
     type_nl: "Conferentie",
-    date: "2026-06-10",
-    location_en: "Szeged, Hungary",
-    location_nl: "Szeged, Hungary",
-    time: "",
-    description_en: "Presentation of COMPASS+ research findings at the European First Year Experience conference.",
-    description_nl: "Presentatie van COMPASS+ onderzoeksbevindingen op de European First Year Experience conferentie."
+    date: "2026-06-11",
+    location_en: "University of Szeged, Hungary",
+    location_nl: "Universiteit van Szeged, Hongarije",
+    time: "14u-15u",
+    description_en: "Conference on the first year experience in higher education. COMPASS+ researcher Moira presented a poster on the individual antecedents of behavioral feedback engagement in the transition to higher education.",
+    description_nl: "Conferentie over de eerstejaarservaring in het hoger onderwijs. COMPASS+ onderzoeker Moira presenteerde een poster over de individuele antecedenten van gedragsmatige feedbackengagement in de transitie naar het hoger onderwijs."
   },
- 
+
+  {
+    id: "kickoff-workshop",
+    title_en: "COMPASS+ Kick-off Workshop",
+    title_nl: "COMPASS+ Kick-off Workshop",
+    type_en: "Conference",
+    type_nl: "Conferentie",
+    date: "2026-09-18",
+    location_en: "University of Antwerp",
+    location_nl: "Universiteit Antwerpen",
+    time: "14:00",
+    description_en: "Workshop for project partners and schools.",
+    description_nl: "Workshop voor projectpartners en scholen."
+  },
+
+  {
+    id: "earli-sig27",
+    title_en: "EARLI SIG 27",
+    title_nl: "EARLI SIG 27",
+    type_en: "Conference",
+    type_nl: "Conferentie",
+    date: "2026-11-18",
+    location_en: "CSIC Residència d'Investigadors, Barcelona, Spain",
+    location_nl: "CSIC Residència d'Investigadors, Barcelona, Spanje",
+    time: "TBD",
+    description_en: "Conference on advancing the computational learning sciences through process measures of learning. A COMPASS+ researcher will present in the \"no-or-not-so-perfect data\" format on the challenges involved in operationalising web-tracking data into a behavioral feedback engagement index.",
+    description_nl: "Conferentie over het meten van leerprocessen in realtime. Een COMPASS+-onderzoeker zal in het \"no-or-not-so-perfect data\" format presenteren over de uitdagingen bij de operationalisatie van web-tracking data tot een gedragsmatige feedbackengagement index."
+  }
 ];
 
 // ── TEAM ──────────────────────────────────────────────
